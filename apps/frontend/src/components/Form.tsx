@@ -13,7 +13,10 @@ export function Form() {
             toast("Please provide a valid Github and Linkedin URLs")
             return;
         }
-        axios.post(`${BACKEND_URL}/api/v1/pre-interview`)
+        axios.post(`${BACKEND_URL}/api/v1/pre-interview`, {
+            github,
+            linkedin
+        })
     }
     return (
         <div className="h-screen w-screen flex justify-center item-center">
