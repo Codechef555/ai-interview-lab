@@ -8,12 +8,12 @@ export function Form() {
     const [github, setGithub] = useState("");
     const [linkedin, setLinkedin] = useState("");
 
-    function onSubmit() {
+    async function onSubmit() {
         if (!github || !linkedin) {
             toast("Please provide a valid Github and Linkedin URLs")
             return;
         }
-        axios.post(`${BACKEND_URL}/api/v1/pre-interview`, {
+        await axios.post(`${BACKEND_URL}/api/v1/pre-interview`, {
             github,
             linkedin
         })
