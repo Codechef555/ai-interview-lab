@@ -5,9 +5,9 @@ export function App() {
   return (
     <div className="h-screen w-screen flex justify-center item-center">
       <div>
-        <input placeholder="Linkedin URL" />
-        <input placeholder="Github URL" />
-        <div className="flex justify-center">
+        <input placeholder="Linkedin URL" className="p-4" />
+        <input placeholder="Github URL" className="p-4" />
+        <div className="flex justify-center p-4">
           <button>Start Interview</button>
         </div>
       </div>
