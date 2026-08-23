@@ -5,6 +5,10 @@ import { Input } from "../components/ui/input";
 export function Form() {
     const [github, setGithub] = useState("");
     const [linkedin, setLinkedin] = useState("");
+
+    function onSubmit() {
+
+    }
     return (
         <div className="h-screen w-screen flex justify-center item-center">
             <div>
@@ -18,7 +22,7 @@ export function Form() {
                     <input placeholder="Github URL" onChange={e => setGithub(e.target.value)} />
                 </div>
                 <div className="flex justify-center p-4">
-                    <Button>Start Interview</Button>
+                    <Button onClick={onSubmit}>Start Interview</Button>
                 </div>
             </div>
         </div>
