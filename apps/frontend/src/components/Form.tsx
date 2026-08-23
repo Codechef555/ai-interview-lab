@@ -12,7 +12,7 @@ export function Form() {
                     AI interview kickstart
                 </h2>
                 <div className="p-4">
-                    <input placeholder="Linkedin URL" />
+                    <input placeholder="Linkedin URL" onChange={e => setLinkedin(e.target.value)} />
                 </div>
                 <div className="p-4">
                     <input placeholder="Github URL" />
