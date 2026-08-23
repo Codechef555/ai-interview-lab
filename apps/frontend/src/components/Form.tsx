@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { toast } from "sonner";
+import axios from "axios";
+import { BACKEND_URL } from "@/lib/config";
 export function Form() {
     const [github, setGithub] = useState("");
     const [linkedin, setLinkedin] = useState("");
@@ -11,6 +13,7 @@ export function Form() {
             toast("Please provide a valid Github and Linkedin URLs")
             return;
         }
+        axios.post(`${BACKEND_URL}/api/v1/pre-interview`)
     }
     return (
         <div className="h-screen w-screen flex justify-center item-center">
