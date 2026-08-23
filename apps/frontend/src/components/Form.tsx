@@ -9,6 +9,7 @@ export function Form() {
     function onSubmit() {
         if (!github || !linkedin) {
             toast("Please provide a valid Github and Linkedin URLs")
+            return;
         }
     }
     return (
