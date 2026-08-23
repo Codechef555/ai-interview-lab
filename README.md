@@ -1,602 +1,159 @@
-# AI Interviewer
+# Turborepo starter
 
-> An AI-powered technical interview platform designed to simulate realistic interviews, evaluate candidate responses, and provide actionable feedback.
+This Turborepo starter is maintained by the Turborepo core team.
 
-AI Interviewer combines conversational AI, voice interaction, and interview evaluation to create an interactive technical interview experience.
+## Using this example
 
-The platform is designed to conduct structured interviews across different technical domains while dynamically adapting the conversation based on the candidate's responses.
+Run the following command:
 
----
-
-## Overview
-
-Traditional interview preparation often relies on static question banks and predefined practice tests.
-
-**AI Interviewer** takes a conversational approach.
-
-The system acts as an intelligent interviewer that can:
-
-* Generate relevant technical questions
-* Conduct interactive interviews
-* Ask contextual follow-up questions
-* Understand candidate responses
-* Adapt interview difficulty
-* Evaluate technical answers
-* Provide structured feedback
-* Track interview performance
-
-The goal is to create an interview experience that closely resembles a real technical interview.
-
----
-
-## ✨ Features
-
-### 🤖 AI-Powered Interviews
-
-Generate dynamic interview questions using large language models instead of relying exclusively on static question banks.
-
-### 💬 Conversational Interviews
-
-The interviewer can maintain context throughout the session and generate follow-up questions based on previous responses.
-
-### 🎤 Voice-Based Interaction
-
-Support voice-driven interviews using speech recognition technology for a more natural interview experience.
-
-### 🧠 Adaptive Questioning
-
-Interview difficulty and question selection can adapt according to the candidate's performance.
-
-### 📊 Interview Evaluation
-
-Analyze responses across multiple dimensions, including:
-
-* Technical correctness
-* Problem-solving ability
-* Communication
-* Depth of understanding
-* Approach and reasoning
-
-### 📈 Performance Tracking
-
-Store interview sessions and evaluation results to make it possible to analyze performance over time.
-
-### 🏗️ Modular Architecture
-
-The application is structured as a monorepo with independently maintainable frontend, backend, and shared packages.
-
----
-
-## 🏛️ Architecture
-
-```text
-                         ┌─────────────────────┐
-                         │      Candidate      │
-                         └──────────┬──────────┘
-                                    │
-                              Voice / Text
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │      Frontend      │
-                         │       React        │
-                         └──────────┬──────────┘
-                                    │
-                           HTTP / WebSocket
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │       Backend      │
-                         │   Express + Bun    │
-                         └───────┬─────┬──────┘
-                                 │     │
-                   ┌─────────────┘     └──────────────┐
-                   ▼                                  ▼
-          ┌─────────────────┐                ┌─────────────────┐
-          │   Google Gemini │                │     Deepgram    │
-          │       LLM       │                │  Speech / Voice │
-          └────────┬────────┘                └────────┬────────┘
-                   │                                  │
-                   └──────────────┬───────────────────┘
-                                  ▼
-                         ┌─────────────────────┐
-                         │      PostgreSQL     │
-                         │       + Prisma      │
-                         └─────────────────────┘
+```sh
+npx create-turbo@latest
 ```
 
----
+## What's inside?
 
-## 🧱 Project Structure
+This Turborepo includes the following packages/apps:
 
-```text
-ai-interviewer/
-│
-├── apps/
-│   │
-│   ├── frontend/
-│   │   ├── src/
-│   │   ├── public/
-│   │   └── package.json
-│   │
-│   └── backend/
-│       ├── prisma/
-│       ├── scrapers/
-│       ├── src/
-│       └── package.json
-│
-├── packages/
-│   │
-│   ├── ui/
-│   │   ├── components/
-│   │   └── package.json
-│   │
-│   ├── eslint-config/
-│   │
-│   └── typescript-config/
-│
-├── package.json
-├── turbo.json
-├── bun.lock
-└── README.md
+### Apps and Packages
+
+- `docs`: a [Next.js](https://nextjs.org/) app
+- `web`: another [Next.js](https://nextjs.org/) app
+- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+
+Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+
+### Utilities
+
+This Turborepo has some additional tools already setup for you:
+
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
+
+### Build
+
+To build all apps and packages, run the following command:
+
+With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
+
+```sh
+cd my-turborepo
+turbo build
 ```
 
----
+Without global `turbo`, use your package manager:
 
-## 🛠️ Tech Stack
-
-### Frontend
-
-| Technology   | Purpose                     |
-| ------------ | --------------------------- |
-| React        | User interface              |
-| TypeScript   | Type-safe development       |
-| React Router | Application routing         |
-| Tailwind CSS | Styling                     |
-| Radix UI     | Accessible UI primitives    |
-| Lucide       | Icons                       |
-| Bun          | Runtime and package manager |
-
-### Backend
-
-| Technology | Purpose                 |
-| ---------- | ----------------------- |
-| Bun        | Runtime                 |
-| TypeScript | Type-safe backend       |
-| Express    | HTTP API                |
-| WebSockets | Real-time communication |
-| PostgreSQL | Primary database        |
-| Prisma     | Database ORM            |
-| Zod        | Schema validation       |
-
-### AI & Voice
-
-| Technology    | Purpose                                   |
-| ------------- | ----------------------------------------- |
-| Google Gemini | Interview intelligence and generation     |
-| Deepgram      | Speech recognition and voice capabilities |
-
-### Development
-
-| Technology | Purpose                |
-| ---------- | ---------------------- |
-| Turborepo  | Monorepo orchestration |
-| ESLint     | Code quality           |
-| Prettier   | Code formatting        |
-| TypeScript | Static type checking   |
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-Make sure the following are installed:
-
-* [Bun](https://bun.sh/)
-* Node.js 18+
-* PostgreSQL
-* Google Gemini API credentials
-* Deepgram API credentials
-
----
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/<username>/ai-interviewer.git
-
-cd ai-interviewer
+```sh
+cd my-turborepo
+npx turbo build
+bun dlx turbo build
+bun exec turbo build
 ```
 
----
+You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
 
-### 2. Install dependencies
+With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
 
-```bash
-bun install
+```sh
+turbo build --filter=docs
 ```
 
----
+Without global `turbo`:
 
-### 3. Configure environment variables
-
-Create the required environment files.
-
-Example backend configuration:
-
-```env
-DATABASE_URL="postgresql://postgres:password@localhost:5432/ai_interviewer"
-
-GEMINI_API_KEY="your_gemini_api_key"
-
-DEEPGRAM_API_KEY="your_deepgram_api_key"
+```sh
+npx turbo build --filter=docs
+bun exec turbo build --filter=docs
+bun exec turbo build --filter=docs
 ```
 
-Additional environment variables may be required depending on the deployment environment.
+### Develop
 
-> Never commit secrets or environment files containing credentials.
+To develop all apps and packages, run the following command:
 
----
+With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
 
-## 🗄️ Database Setup
-
-The backend uses PostgreSQL with Prisma.
-
-Generate the Prisma client:
-
-```bash
-cd apps/backend
-
-bunx prisma generate
+```sh
+cd my-turborepo
+turbo dev
 ```
 
-Run database migrations:
+Without global `turbo`, use your package manager:
 
-```bash
-bunx prisma migrate dev
+```sh
+cd my-turborepo
+npx turbo dev
+bun exec turbo dev
+bun exec turbo dev
 ```
 
-Open Prisma Studio:
+You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
 
-```bash
-bunx prisma studio
+With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
+
+```sh
+turbo dev --filter=web
 ```
 
----
+Without global `turbo`:
 
-## ▶️ Running the Application
-
-Start the complete development environment:
-
-```bash
-bun dev
+```sh
+npx turbo dev --filter=web
+bun exec turbo dev --filter=web
+bun exec turbo dev --filter=web
 ```
 
-### Frontend
+### Remote Caching
 
-```bash
-cd apps/frontend
+> [!TIP]
+> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
 
-bun dev
+Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+
+By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+
+With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
+
+```sh
+cd my-turborepo
+turbo login
 ```
 
-### Backend
+Without global `turbo`, use your package manager:
 
-```bash
-cd apps/backend
-
-bun run index.ts
+```sh
+cd my-turborepo
+npx turbo login
+bun exec turbo login
+bun exec turbo login
 ```
 
----
+This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
 
-## 🧪 Development Commands
+Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
 
-From the project root:
+With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
 
-```bash
-# Start development servers
-bun dev
-
-# Build all applications
-bun run build
-
-# Run ESLint
-bun run lint
-
-# Type check
-bun run check-types
-
-# Format source code
-bun run format
+```sh
+turbo link
 ```
 
----
+Without global `turbo`:
 
-## 🔄 Interview Lifecycle
-
-A typical interview session follows this workflow:
-
-```text
-┌───────────────┐
-│ Create Session│
-└───────┬───────┘
-        │
-        ▼
-┌──────────────────┐
-│ Configure Interview│
-│ • Role            │
-│ • Difficulty      │
-│ • Topics          │
-│ • Interview Type  │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ Start Interview  │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ Generate Question│
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ Candidate Answer │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ Analyze Response │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ Generate Follow- │
-│ Up / Next Question│
-└────────┬─────────┘
-         │
-         └──────────────┐
-                        │
-                        ▼
-                Continue Interview
-                        │
-                        ▼
-                 ┌──────────────┐
-                 │ Final Report │
-                 └──────────────┘
+```sh
+npx turbo link
+bun exec turbo link
+bun exec turbo link
 ```
 
----
+## Useful Links
 
-## 🎯 Interview Types
+Learn more about the power of Turborepo:
 
-The platform is designed to support multiple interview formats.
-
-### Technical Interviews
-
-Evaluate knowledge of:
-
-* Data Structures & Algorithms
-* Object-Oriented Programming
-* Databases
-* Operating Systems
-* Computer Networks
-* Programming Languages
-* Software Engineering
-
-### System Design
-
-Evaluate:
-
-* Architecture
-* Scalability
-* Reliability
-* Distributed systems
-* Database design
-* API design
-* Trade-offs
-
-### Coding Interviews
-
-Support:
-
-* Problem solving
-* Algorithm design
-* Complexity analysis
-* Code quality
-* Edge-case handling
-
-### Behavioral Interviews
-
-Evaluate:
-
-* Communication
-* Leadership
-* Decision making
-* Conflict resolution
-* Team collaboration
-
-### Resume-Based Interviews
-
-Generate questions based on a candidate's:
-
-* Resume
-* Projects
-* Experience
-* Technical skills
-
----
-
-## 📊 Evaluation
-
-Interview results can be evaluated across multiple dimensions.
-
-| Category           | Description                                |
-| ------------------ | ------------------------------------------ |
-| Technical Accuracy | Correctness of the response                |
-| Problem Solving    | Reasoning and approach                     |
-| Communication      | Clarity and structure                      |
-| Depth              | Understanding beyond surface-level answers |
-| Efficiency         | Ability to reach an effective solution     |
-| Confidence         | Quality and consistency of responses       |
-
-The evaluation system can produce both quantitative scores and qualitative feedback.
-
----
-
-## 🗺️ Roadmap
-
-### Core Interview Experience
-
-* [ ] Interview configuration
-* [ ] Interview session management
-* [ ] AI-generated questions
-* [ ] Context-aware follow-up questions
-* [ ] Interview history
-
-### Voice
-
-* [ ] Speech-to-text
-* [ ] Real-time voice interaction
-* [ ] Streaming responses
-* [ ] Voice activity detection
-* [ ] Natural turn-taking
-
-### AI
-
-* [ ] Adaptive interview difficulty
-* [ ] Context-aware questioning
-* [ ] Structured AI outputs
-* [ ] Interview evaluation
-* [ ] Personalized feedback
-* [ ] Interview scoring
-
-### Analytics
-
-* [ ] Performance dashboard
-* [ ] Topic-wise performance
-* [ ] Historical performance
-* [ ] Weak-area detection
-* [ ] Progress tracking
-
-### Advanced Features
-
-* [ ] Resume-based interviews
-* [ ] Job-description-based interviews
-* [ ] Coding environments
-* [ ] System-design interviews
-* [ ] RAG-powered question generation
-* [ ] Multiple AI model support
-* [ ] Custom interview configurations
-
----
-
-## 🔐 Security Considerations
-
-The application handles potentially sensitive information such as interview responses and candidate data.
-
-Security considerations include:
-
-* Secure API key management
-* Environment-based secrets
-* Server-side AI credentials
-* Input validation
-* Authentication and authorization
-* Database access controls
-* Secure WebSocket connections
-* Protection against prompt injection
-* Rate limiting
-* Secure logging
-
----
-
-## 📦 Deployment
-
-The application is structured to support independent deployment of the frontend and backend.
-
-A typical production architecture can be deployed as:
-
-```text
-                    Internet
-                       │
-                       ▼
-              ┌─────────────────┐
-              │   CDN / Proxy   │
-              └────────┬────────┘
-                       │
-              ┌────────┴────────┐
-              ▼                 ▼
-       ┌────────────┐    ┌────────────┐
-       │  Frontend  │    │  Backend   │
-       │   React    │    │   Bun/API  │
-       └────────────┘    └─────┬──────┘
-                               │
-                    ┌──────────┴──────────┐
-                    ▼                     ▼
-             ┌────────────┐       ┌────────────┐
-             │ PostgreSQL │       │ AI / Voice │
-             │            │       │ Providers  │
-             └────────────┘       └────────────┘
-```
-
----
-
-## 📈 Future Architecture
-
-As the system grows, the architecture can evolve toward:
-
-```text
-                  ┌────────────────────┐
-                  │     Frontend       │
-                  └─────────┬──────────┘
-                            │
-                            ▼
-                  ┌────────────────────┐
-                  │    API Gateway     │
-                  └─────────┬──────────┘
-                            │
-             ┌──────────────┼──────────────┐
-             ▼              ▼              ▼
-       ┌───────────┐  ┌───────────┐  ┌───────────┐
-       │ Interview │  │ Evaluation│  │  Voice    │
-       │ Service   │  │ Service   │  │  Service  │
-       └─────┬─────┘  └─────┬─────┘  └─────┬─────┘
-             │              │              │
-             └──────────────┼──────────────┘
-                            ▼
-                  ┌────────────────────┐
-                  │    PostgreSQL      │
-                  └────────────────────┘
-```
-
-This allows individual components to scale independently as the platform evolves.
-
----
-
-## 📚 Resources
-
-* [Bun](https://bun.sh/)
-* [Turborepo](https://turbo.build/)
-* [React](https://react.dev/)
-* [Prisma](https://www.prisma.io/)
-* [Google Gemini](https://ai.google.dev/)
-* [Deepgram](https://deepgram.com/)
-
----
-
-## 📄 License
-
-This project currently does not include an explicit open-source license.
-
-If the project is released publicly for use or contribution, add an appropriate `LICENSE` file and update this section accordingly.
-
----
-
-## 🚧 Project Status
-
-**Active Development**
-
-The platform is currently under active development. Features, architecture, and implementation details may evolve as the system progresses toward a production-ready AI interview experience.
+- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
+- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
+- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
+- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
+- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
+- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
