@@ -5,9 +5,11 @@ export function App() {
   return (
     <div className="h-screen w-screen flex justify-center item-center">
       <div>
-        <input />
-        <input />
-        <button>Start Interview</button>
+        <input placeholder="Linkedin URL" />
+        <input placeholder="Github URL" />
+        <div className="flex justify-center">
+          <button>Start Interview</button>
+        </div>
       </div>
     </div>
   );
