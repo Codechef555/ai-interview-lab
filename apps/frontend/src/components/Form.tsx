@@ -4,6 +4,7 @@ import { Input } from "../components/ui/input";
 
 export function Form() {
     const [github, setGithub] = useState("");
+    const [linkedin, setLinkedin] = useState("");
     return (
         <div className="h-screen w-screen flex justify-center item-center">
             <div>
