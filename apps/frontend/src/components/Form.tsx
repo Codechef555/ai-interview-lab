@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
-
+import { toast } from "sonner";
 export function Form() {
     const [github, setGithub] = useState("");
     const [linkedin, setLinkedin] = useState("");
 
     function onSubmit() {
-
+        if (!github || !linkedin) {
+            toast("Please provide a valid Github and Linkedin URLs")
+        }
     }
     return (
         <div className="h-screen w-screen flex justify-center item-center">
