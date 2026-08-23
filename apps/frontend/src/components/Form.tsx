@@ -15,7 +15,7 @@ export function Form() {
                     <input placeholder="Linkedin URL" onChange={e => setLinkedin(e.target.value)} />
                 </div>
                 <div className="p-4">
-                    <input placeholder="Github URL" />
+                    <input placeholder="Github URL" onChange={e => setGithub(e.target.value)} />
                 </div>
                 <div className="flex justify-center p-4">
                     <Button>Start Interview</Button>
