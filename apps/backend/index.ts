@@ -1,1 +1,5 @@
-console.log("Hello via Bun!");
+import express from "express";
+
+const app = express();
+
+app.listen(3001);
