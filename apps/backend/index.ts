@@ -23,6 +23,8 @@ app.post("api/v1/pre-interview", async (req, res) => {
     const linkedinUsername = githubUrl.split("/").pop();
 
     const userRepos = await axios.get(`https://api.github.com/users/${githubUsername}/repos`);
-    const filterUserRepos = userRepos.data.map()
+    const filterUserRepos = userRepos.data.map((x: any) => {
+        description: x.description;
+    })
 })
 app.listen(3001);
