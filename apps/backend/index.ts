@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-app.post("api/v1/pre-interview", (req, res) => {
+app.post("api/v1/pre-interview", async (req, res) => {
     const { success, data } = PreInterviewBody.safeParse(req.body);
 
     if (!success) {
@@ -22,6 +22,6 @@ app.post("api/v1/pre-interview", (req, res) => {
     const githubUsername = githubUrl.split("/").pop();
     const linkedinUsername = githubUrl.split("/").pop();
 
-    await axios.get(`https://api.github.com/users/${githubUsername}/repos`);
+    const userRepos = await axios.get(`https://api.github.com/users/${githubUsername}/repos`);
 })
 app.listen(3001);
