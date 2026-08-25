@@ -15,7 +15,10 @@ app.post("api/v1/pre-interview", (req, res) => {
         return
     }
 
-    const githubUrl =
-    const linkedinUrl =
+    const githubUrl = data.github;
+    const linkedinUrl = data.linkedin;
+
+    const githubUsername =
+    const linkedinUsername =
 })
 app.listen(3001);
