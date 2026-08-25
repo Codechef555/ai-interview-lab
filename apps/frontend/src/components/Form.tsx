@@ -6,16 +6,14 @@ import axios from "axios";
 import { BACKEND_URL } from "@/lib/config";
 export function Form() {
     const [github, setGithub] = useState("");
-    const [linkedin, setLinkedin] = useState("");
 
     async function onSubmit() {
-        if (!github || !linkedin) {
-            toast("Please provide a valid Github and Linkedin URLs")
+        if (!github) {
+            toast("Please provide a valid Github URL")
             return;
         }
         await axios.post(`${BACKEND_URL}/api/v1/pre-interview`, {
-            github,
-            linkedin
+            github
         })
     }
     return (
@@ -24,9 +22,6 @@ export function Form() {
                 <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
                     AI interview kickstart
                 </h2>
-                <div className="p-4">
-                    <input placeholder="Linkedin URL" onChange={e => setLinkedin(e.target.value)} />
-                </div>
                 <div className="p-4">
                     <input placeholder="Github URL" onChange={e => setGithub(e.target.value)} />
                 </div>

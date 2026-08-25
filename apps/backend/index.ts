@@ -17,10 +17,8 @@ app.post("api/v1/pre-interview", async (req, res) => {
     }
 
     const githubUrl = data.github.endsWith("/") ? data.github.slice(0, -1) : data.github;
-    const linkedinUrl = data.linkedin.endsWith("/") ? data.linkedin.slice(0, -1) : data.linkedin;
 
     const githubUsername = githubUrl.split("/").pop();
-    const linkedinUsername = githubUrl.split("/").pop();
 
     const userRepos = await axios.get(`https://api.github.com/users/${githubUsername}/repos`);
     const filterUserRepos = userRepos.data.map((x: any) => {
@@ -29,8 +27,6 @@ app.post("api/v1/pre-interview", async (req, res) => {
         fullName: x.full_name;
         starCount: x.stargazers_count;
     })
-
-    // Scraping Linkedin : difficult part of this project
 
 })
 app.listen(3001);
