@@ -6,7 +6,7 @@ export async function scrapeGithub(username: string) {
     const userRepos = await axios.get(`https://api.github.com/users/${username}/repos`, {
         proxy: {
             host: "gw.dataimpulse.com",
-            port: number,
+            port: 823,
             auth: {
                 username: process.env.DATAIMPULSE_PROXY_USER!,
                 password: process.env.DATAIMPULSE_PROXY_PASSWORD!,
