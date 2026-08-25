@@ -1,5 +1,6 @@
 import express from "express";
 import { PreInterviewBody } from "./types";
+import axios from "axios";
 
 const app = express();
 
@@ -20,5 +21,7 @@ app.post("api/v1/pre-interview", (req, res) => {
 
     const githubUsername = githubUrl.split("/").pop();
     const linkedinUsername = githubUrl.split("/").pop();
+
+    await axios.get(`https://api.github.com/users/${githubUsername}/repos`);
 })
 app.listen(3001);
