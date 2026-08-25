@@ -27,7 +27,7 @@ app.post("api/v1/pre-interview", async (req, res) => {
         description: x.description;
         name: x.name;
         fullName: x.full_name;
-
+        starCount: x.stargazers_count;
     })
 })
 app.listen(3001);
