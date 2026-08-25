@@ -18,7 +18,7 @@ app.post("api/v1/pre-interview", (req, res) => {
     const githubUrl = data.github.endsWith("/") ? data.github.slice(0, -1) : data.github;
     const linkedinUrl = data.linkedin.endsWith("/") ? data.linkedin.slice(0, -1) : data.linkedin;
 
-    const githubUsername =
+    const githubUsername = githubUrl.split("/").pop();
     const linkedinUsername =
 })
 app.listen(3001);
