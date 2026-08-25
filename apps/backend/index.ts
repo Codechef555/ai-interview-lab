@@ -1,6 +1,7 @@
 import express from "express";
 import { PreInterviewBody } from "./types";
 import axios from "axios";
+import { scrapeGithub } from "./scrapers/github";
 
 const app = express();
 
@@ -20,13 +21,9 @@ app.post("api/v1/pre-interview", async (req, res) => {
 
     const githubUsername = githubUrl.split("/").pop();
 
-    const userRepos = await axios.get(`https://api.github.com/users/${githubUsername}/repos`);
-    const filterUserRepos = userRepos.data.map((x: any) => {
-        description: x.description;
-        name: x.name;
-        fullName: x.full_name;
-        starCount: x.stargazers_count;
-    })
-
+    const githubData = await scrapeGithub(githubUsername);
+    console.log(githubData);
+    res.json({ github: githubData });
 })
+
 app.listen(3001);
