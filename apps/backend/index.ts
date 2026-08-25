@@ -9,7 +9,9 @@ app.post("api/v1/pre-interview", (req, res) => {
     const { success, data } = PreInterviewBody.safeParse(req.body);
 
     if (!success) {
-        res.status(411).json()
+        res.status(411).json({
+            message: "Incorrect body"
+        })
         return
     }
 })
