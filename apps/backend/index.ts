@@ -29,5 +29,8 @@ app.post("api/v1/pre-interview", async (req, res) => {
         fullName: x.full_name;
         starCount: x.stargazers_count;
     })
+
+    // Scraping Linkedin : difficult part of this project
+
 })
 app.listen(3001);
