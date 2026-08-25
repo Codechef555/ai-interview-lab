@@ -25,6 +25,8 @@ app.post("api/v1/pre-interview", async (req, res) => {
     const userRepos = await axios.get(`https://api.github.com/users/${githubUsername}/repos`);
     const filterUserRepos = userRepos.data.map((x: any) => {
         description: x.description;
+        name: x.name;
+
     })
 })
 app.listen(3001);
