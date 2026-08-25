@@ -11,8 +11,11 @@ app.post("api/v1/pre-interview", (req, res) => {
     if (!success) {
         res.status(411).json({
             message: "Incorrect body"
-        })
+        });
         return
     }
+
+    const githubUrl =
+    const linkedinUrl =
 })
 app.listen(3001);
