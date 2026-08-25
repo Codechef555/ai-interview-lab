@@ -26,6 +26,7 @@ app.post("api/v1/pre-interview", async (req, res) => {
     const filterUserRepos = userRepos.data.map((x: any) => {
         description: x.description;
         name: x.name;
+        fullName: x.full_name;
 
     })
 })
