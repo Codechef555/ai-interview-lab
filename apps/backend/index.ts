@@ -6,7 +6,7 @@ import { scrapeGithub } from "./scrapers/github";
 const app = express();
 
 app.use(express.json());
-
+app.use(cors());
 app.post("api/v1/pre-interview", async (req, res) => {
     const { success, data } = PreInterviewBody.safeParse(req.body);
 
