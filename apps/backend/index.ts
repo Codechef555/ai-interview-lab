@@ -2,6 +2,7 @@ import express from "express";
 import { PreInterviewBody } from "./types";
 import axios from "axios";
 import { scrapeGithub } from "./scrapers/github";
+import cors from "cors";
 
 const app = express();
 
