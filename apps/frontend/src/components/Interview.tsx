@@ -37,7 +37,7 @@ export function Interview() {
             });
 
             const answer = {
-                type: "answer",
+                type: "answer" as "answer",
                 sdp: await sdpResponse.text(),
             };
             await pc.setRemoteDescription(answer);
