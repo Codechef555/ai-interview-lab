@@ -30,8 +30,17 @@ app.post("api/v1/pre-interview", async (req, res) => {
         throw new Error("Invalid GitHub URL");
     }
     const githubData = await scrapeGithub(githubUsername);
-    console.log(githubData);
+
+    await prisma.interview.create({
+        data: {
+            githubMetadata: JSON.stringify(githubData),
+            status: "Pre",
+        }
+    })
+
+
     res.json({ github: githubData });
+
 })
 
 app.listen(3001);
