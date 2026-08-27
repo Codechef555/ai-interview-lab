@@ -12,7 +12,7 @@ export function Interview() {
         // Set up to play remote audio from the model
         audioRef.current = document.createElement("audio");
         audioRef.current.autoplay = true;
-        pc.ontrack = (e) => (audioElement.current.srcObject = e.streams[0]);
+        pc.ontrack = (e) => (audioRef.current!.srcObject = e.streams[0]!);
 
         // Add local audio track for microphone input in the browser
         const ms = await navigator.mediaDevices.getUserMedia({
