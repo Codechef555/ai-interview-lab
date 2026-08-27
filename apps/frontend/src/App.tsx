@@ -13,7 +13,9 @@ export function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path=""></Route>
+        <Route path="/" element={<Form />} />
+        <Route path="/interview:id" element={<Form />} />
+        <Route path="/" element={<Form />} />
       </Routes>
       {page == "form" && <Form />}
       {page == "interview" && <Interview />}
