@@ -7,15 +7,17 @@ import { Interview } from "./components/Interview";
 import { Result } from "./components/Result";
 import { Toaster } from "sonner";
 import { BrowserRouter, Routes, Route } from "react-router";
+
 export function App() {
   const [page, setPage] = useState<"form" | "interview" | "result">("form");
   return (
-    <div>
+    <BrowserRouter>
+
       {page == "form" && <Form />}
       {page == "interview" && <Interview />}
       {page == "result" && <Result />}
       <Toaster position="bottom-left" />
-    </div>
+    </BrowserRouter>
 
   );
 }
