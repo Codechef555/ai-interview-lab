@@ -31,7 +31,7 @@ app.post("api/v1/pre-interview", async (req, res) => {
     }
     const githubData = await scrapeGithub(githubUsername);
 
-    await prisma.interview.create({
+    const interview = await prisma.interview.create({
         data: {
             githubMetadata: JSON.stringify(githubData),
             status: "Pre",
