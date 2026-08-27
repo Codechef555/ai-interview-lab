@@ -39,7 +39,7 @@ app.post("api/v1/pre-interview", async (req, res) => {
     })
 
 
-    res.json({ github: githubData });
+    res.json({ id: interview.id });
 
 })
 
