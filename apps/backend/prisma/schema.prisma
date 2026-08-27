@@ -13,8 +13,14 @@ datasource db {
 }
 
 model Interview {
-  id             String @id @default(uuid())
+  id             String          @id @default(uuid())
   githubMetadata Json
-  status
-  score
+  status         InterviewStatus
+  score          Int
+}
+
+enum InterviewStatus {
+  Pre
+  Inprogress
+  Done
 }
