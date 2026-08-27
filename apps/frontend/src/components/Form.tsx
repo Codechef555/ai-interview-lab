@@ -18,7 +18,7 @@ export function Form() {
         const response = await axios.post(`${BACKEND_URL}/api/v1/pre-interview`, {
             github
         })
-
+        setLoading(true);
         navigate(`/interview/${response.data.id}`);
 
     }
