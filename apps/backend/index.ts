@@ -3,7 +3,7 @@ import { PreInterviewBody } from "./types";
 import axios from "axios";
 import { scrapeGithub } from "./scrapers/github";
 import cors from "cors";
-
+import { prisma } from "./db";
 const app = express();
 
 app.use(express.json());
