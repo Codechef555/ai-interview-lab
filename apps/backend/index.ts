@@ -18,10 +18,17 @@ app.post("api/v1/pre-interview", async (req, res) => {
         return
     }
 
-    const githubUrl = data.github.endsWith("/") ? data.github.slice(0, -1) : data.github;
+    //const githubUrl = data.github.endsWith("/") ? data.github.slice(0, -1) : data.github;
+    //const githubUsername = githubUrl.split("/").pop();
+    //const githubData = await scrapeGithub(githubUsername);
 
+    const githubUrl = data.github.endsWith("/")
+        ? data.github.slice(0, -1)
+        : data.github;
     const githubUsername = githubUrl.split("/").pop();
-
+    if (!githubUsername) {
+        throw new Error("Invalid GitHub URL");
+    }
     const githubData = await scrapeGithub(githubUsername);
     console.log(githubData);
     res.json({ github: githubData });
