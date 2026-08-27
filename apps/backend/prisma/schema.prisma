@@ -19,6 +19,17 @@ model Interview {
   score          Int
 }
 
+model Message {
+  id      String      @id @default(uuid())
+  message String
+  type    MessageType
+}
+
+enum MessageType {
+  User
+  Assistant
+}
+
 enum InterviewStatus {
   Pre
   Inprogress
