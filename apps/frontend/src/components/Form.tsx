@@ -4,9 +4,10 @@ import { Input } from "../components/ui/input";
 import { toast } from "sonner";
 import axios from "axios";
 import { BACKEND_URL } from "@/lib/config";
+import { useNavigate } from "react-router";
 export function Form() {
     const [github, setGithub] = useState("");
-
+    const navigate = useNavigate();
     async function onSubmit() {
         if (!github) {
             toast("Please provide a valid Github URL")
@@ -16,6 +17,7 @@ export function Form() {
             github
         })
 
+        navigate
 
     }
     return (
