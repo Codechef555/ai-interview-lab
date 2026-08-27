@@ -6,7 +6,7 @@ export function Interview() {
 
     useEffect(() => {
 
-    }, [])
+    }, [InterviewId])
     return <div>
         Interview
     </div>
