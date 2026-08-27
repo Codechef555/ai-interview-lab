@@ -10,8 +10,8 @@ export function Interview() {
         const pc = new RTCPeerConnection();
 
         // Set up to play remote audio from the model
-        audioElement.current = document.createElement("audio");
-        audioElement.current.autoplay = true;
+        audioRef.current = document.createElement("audio");
+        audioRef.current.autoplay = true;
         pc.ontrack = (e) => (audioElement.current.srcObject = e.streams[0]);
 
         // Add local audio track for microphone input in the browser
