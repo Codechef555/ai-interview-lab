@@ -17,12 +17,15 @@ model Interview {
   githubMetadata Json
   status         InterviewStatus
   score          Int
+  conversations  Message[]
 }
 
 model Message {
-  id      String      @id @default(uuid())
-  message String
-  type    MessageType
+  id          String      @id @default(uuid())
+  message     String
+  type        MessageType
+  interviewId String
+  interview   Interview   @relation(fields: [interviewId], references: [id])
 }
 
 enum MessageType {
