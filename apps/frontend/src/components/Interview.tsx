@@ -42,7 +42,7 @@ export function Interview() {
         await pc.setRemoteDescription(answer);
     }, [InterviewId])
     return <div>
-        <audio autoPlay></audio>
+        <audio autoPlay ref={audioRef}></audio>
         Interview
     </div>
 }
