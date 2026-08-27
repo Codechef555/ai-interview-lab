@@ -73,7 +73,8 @@ app.post("/api/v1/session/:interviewId", async (req, res) => {
         const sdp = await sdpResponse.text();
         res.send(sdp);
 
-        initsideband(callId,)
+        initsideband(callId, req.params.interviewId);
+
     } catch (error) {
         console.error("Token generation error:", error);
         res.status(500).json({ error: "Failed to generate token" });
