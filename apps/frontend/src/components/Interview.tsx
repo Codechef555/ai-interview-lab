@@ -19,7 +19,7 @@ export function Interview() {
             const ms = await navigator.mediaDevices.getUserMedia({
                 audio: true,
             });
-            pc.addTrack(ms.getTracks()[0]);
+            pc.addTrack(ms.getTracks()[0]!);
 
             // Set up data channel for sending and receiving events
             const dc = pc.createDataChannel("oai-events");
