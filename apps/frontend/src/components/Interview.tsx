@@ -22,13 +22,13 @@ export function Interview() {
             pc.addTrack(ms.getTracks()[0]!);
 
             // Set up data channel for sending and receiving events
-            const dc = pc.createDataChannel("oai-events");
+            // const dc = pc.createDataChannel("oai-events");
 
             // Start the session using the Session Description Protocol (SDP)
             const offer = await pc.createOffer();
             await pc.setLocalDescription(offer);
 
-            const sdpResponse = await fetch("/session", {
+            const sdpResponse = await fetch("/api/v1/session", {
                 method: "POST",
                 body: offer.sdp,
                 headers: {
