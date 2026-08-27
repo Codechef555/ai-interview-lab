@@ -32,7 +32,7 @@ export function Form() {
                     <input placeholder="Github URL" onChange={e => setGithub(e.target.value)} />
                 </div>
                 <div className="flex justify-center p-4">
-                    <Button disabled={loading} onClick={onSubmit}>{loading ? "Starting Interview" : "Start Interview"}</Button>
+                    <Button disabled={loading} onClick={onSubmit}>{loading ? "Starting Interview..." : "Start Interview"}</Button>
                 </div>
             </div>
         </div>
