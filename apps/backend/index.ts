@@ -4,6 +4,7 @@ import axios from "axios";
 import { scrapeGithub } from "./scrapers/github";
 import cors from "cors";
 import { prisma } from "./db";
+import { initsideband } from "./sideband";
 const app = express();
 
 app.use(express.json());
@@ -67,7 +68,7 @@ app.post("/api/v1/session/:interviewId", async (req, res) => {
             body: fd,
         });
         const location = sdpResponse.headers.get('Location');
-        const callId = location?.split("/").pop();
+        const callId = location?.split("/").pop()!;
         console.log(callId)
         // Send back the SDP we received from the OpenAI REST API
         const sdp = await sdpResponse.text();
