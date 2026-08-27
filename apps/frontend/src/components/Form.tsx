@@ -15,10 +15,10 @@ export function Form() {
             toast("Please provide a valid Github URL")
             return;
         }
+        setLoading(true);
         const response = await axios.post(`${BACKEND_URL}/api/v1/pre-interview`, {
             github
         })
-        setLoading(true);
         navigate(`/interview/${response.data.id}`);
 
     }
@@ -32,7 +32,7 @@ export function Form() {
                     <input placeholder="Github URL" onChange={e => setGithub(e.target.value)} />
                 </div>
                 <div className="flex justify-center p-4">
-                    <Button onClick={onSubmit}>Start Interview</Button>
+                    <Button disabled={loading} onClick={onSubmit}>Start Interview</Button>
                 </div>
             </div>
         </div>
