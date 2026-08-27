@@ -23,5 +23,10 @@ export function initsideband(callId: string, interviewId: string) {
             })
         );
     });
+
+    // Listen for and parse server events
+    ws.on("message", function incoming(message) {
+        console.log(JSON.parse(message.toString()));
+    });
 }
 //${interview?.githubData}
