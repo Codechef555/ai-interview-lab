@@ -48,6 +48,11 @@ app.post("api/v1/pre-interview", async (req, res) => {
 })
 
 app.post("/api/v1/session", (req, res) => {
+    const sessionConfig = JSON.stringify({
+        type: "realtime",
+        model: "gpt-realtime-2.1",
+        audio: { output: { voice: "marin" } },
+    });
 
 });
 app.listen(3001);
