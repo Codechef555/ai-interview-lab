@@ -18,7 +18,7 @@ export function initsideband(callId: string, interviewId: string) {
                 type: "session.update",
                 session: {
                     type: "realtime",
-                    instructions: "Be extra nice today!",
+                    instructions: `You are supposed to interview this user on their computer science intellect. Ask around 2-3 questions based on their experience. Please use english only during the interview.Here is everything about the users github, will give you a rough idea about what the user does - ## Github metadata`,
                 },
             })
         );
