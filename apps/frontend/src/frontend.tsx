@@ -11,9 +11,7 @@ import { App } from "./App";
 
 const elem = document.getElementById("root")!;
 const app = (
-  <StrictMode>
-    <App />
-  </StrictMode>
+  <App />
 );
 
 // https://bun.com/docs/bundler/hot-reloading#import-meta-hot-data
