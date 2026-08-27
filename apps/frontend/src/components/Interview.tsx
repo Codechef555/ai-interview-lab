@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useParams } from "react-router"
 
 export function Interview() {
     const { InterviewId } = useParams();
+    const audioRef = useRef<HTMLAudioElement>(null);
 
     useEffect(() => {
         // Create a peer connection
@@ -41,6 +42,7 @@ export function Interview() {
         await pc.setRemoteDescription(answer);
     }, [InterviewId])
     return <div>
+        <audio autoPlay></audio>
         Interview
     </div>
 }
