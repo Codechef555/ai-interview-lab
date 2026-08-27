@@ -2,11 +2,12 @@ import express from "express";
 import { PreInterviewBody } from "./types";
 import axios from "axios";
 import { scrapeGithub } from "./scrapers/github";
+import cors from "cors";
 
 const app = express();
 
 app.use(express.json());
-
+app.use(cors());
 app.post("api/v1/pre-interview", async (req, res) => {
     const { success, data } = PreInterviewBody.safeParse(req.body);
 
