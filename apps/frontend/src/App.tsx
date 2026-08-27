@@ -12,7 +12,9 @@ export function App() {
   const [page, setPage] = useState<"form" | "interview" | "result">("form");
   return (
     <BrowserRouter>
-
+      <Routes>
+        <Route path=""></Route>
+      </Routes>
       {page == "form" && <Form />}
       {page == "interview" && <Interview />}
       {page == "result" && <Result />}
