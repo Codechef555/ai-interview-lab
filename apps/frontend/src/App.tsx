@@ -14,12 +14,9 @@ export function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Form />} />
-        <Route path="/interview:id" element={<Interview />} />
-        <Route path="/" element={<Form />} />
+        <Route path="/interview/:id" element={<Interview />} />
+        <Route path="/result/:id" element={<Result />} />
       </Routes>
-      {page == "form" && <Form />}
-      {page == "interview" && <Interview />}
-      {page == "result" && <Result />}
       <Toaster position="bottom-left" />
     </BrowserRouter>
 
