@@ -47,7 +47,7 @@ app.post("api/v1/pre-interview", async (req, res) => {
 
 })
 
-app.post("/api/v1/session", (req, res) => {
+app.post("/api/v1/session", async (req, res) => {
     const sessionConfig = JSON.stringify({
         type: "realtime",
         model: "gpt-realtime-2.1",
