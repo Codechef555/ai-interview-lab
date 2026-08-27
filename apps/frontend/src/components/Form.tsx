@@ -17,7 +17,7 @@ export function Form() {
             github
         })
 
-        navigate
+        navigate(`/interview/${response.data.id}`);
 
     }
     return (
