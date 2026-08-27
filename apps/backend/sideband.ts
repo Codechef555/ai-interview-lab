@@ -7,5 +7,20 @@ export function initsideband(callId: string, interviewId: string) {
         headers: {
             Authorization: "Bearer " + process.env.OPENAI_KEY,
         },
-    })
+    });
+
+    ws.on("open", function open() {
+        console.log("Connected to server.");
+
+        // Send client events over the WebSocket once connected
+        ws.send(
+            JSON.stringify({
+                type: "session.update",
+                session: {
+                    type: "realtime",
+                    instructions: "Be extra nice today!",
+                },
+            })
+        );
+    });
 }
