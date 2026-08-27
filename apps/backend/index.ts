@@ -8,6 +8,10 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+// Parse raw SDP payloads posted from the browser
+app.use(express.text({ type: ["application/sdp", "text/plain"] }));
+
+
 app.post("api/v1/pre-interview", async (req, res) => {
     const { success, data } = PreInterviewBody.safeParse(req.body);
 
@@ -43,4 +47,7 @@ app.post("api/v1/pre-interview", async (req, res) => {
 
 })
 
+app.post("/api/v1/session", (req, res) => {
+
+});
 app.listen(3001);
