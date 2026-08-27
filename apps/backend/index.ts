@@ -47,7 +47,7 @@ app.post("api/v1/pre-interview", async (req, res) => {
 
 })
 
-app.post("/api/v1/session", async (req, res) => {
+app.post("/api/v1/session/:interviewId", async (req, res) => {
     const sessionConfig = JSON.stringify({
         type: "realtime",
         model: "gpt-realtime-2.1",
@@ -72,6 +72,8 @@ app.post("/api/v1/session", async (req, res) => {
         // Send back the SDP we received from the OpenAI REST API
         const sdp = await sdpResponse.text();
         res.send(sdp);
+
+        initsideband(callId,)
     } catch (error) {
         console.error("Token generation error:", error);
         res.status(500).json({ error: "Failed to generate token" });
