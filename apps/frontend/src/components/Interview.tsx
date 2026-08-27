@@ -1,3 +1,4 @@
+import { BACKEND_URL } from "@/lib/config";
 import { useEffect, useRef } from "react";
 import { useParams } from "react-router"
 
@@ -28,7 +29,7 @@ export function Interview() {
             const offer = await pc.createOffer();
             await pc.setLocalDescription(offer);
 
-            const sdpResponse = await fetch("/api/v1/session", {
+            const sdpResponse = await fetch(`${BACKEND_URL}/api/v1/session`, {
                 method: "POST",
                 body: offer.sdp,
                 headers: {
