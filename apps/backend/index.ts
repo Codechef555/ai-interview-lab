@@ -61,7 +61,7 @@ app.post("/api/v1/session", async (req, res) => {
         const r = await fetch("https://api.openai.com/v1/realtime/calls", {
             method: "POST",
             headers: {
-                Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+                Authorization: `Bearer ${process.env.OPENAI_KEY}`,
                 "OpenAI-Safety-Identifier": "hashed-user-id",
             },
             body: fd,
