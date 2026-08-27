@@ -11,3 +11,10 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Interview {
+  id               String       @id @default(uuid())
+  githubMetadata
+  status
+  score
+}
