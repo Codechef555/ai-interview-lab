@@ -34,6 +34,8 @@ export async function initsideband(callId: string, interviewId: string) {
     ws.on("message", function incoming(message) {
         const parsedMessage = JSON.parse(message.toString())
         if (parsedMessage.type == "response.done") {
+            let contents: {type: string, transcript: string}[] = [];
+            
             console.log(JSON.stringify(parsedMessage));
         }
     });
