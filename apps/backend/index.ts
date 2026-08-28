@@ -81,7 +81,7 @@ app.post("/api/v1/session/:interviewId", async (req, res) => {
     }
 });
 
-app.post("/api/v1/session/:interviewId", async(req,res) => {
+app.post("/api/v1/session/user/response:interviewId", async(req,res) => {
     const { message } = req.body;
     await prism.message.create({
         data: {
