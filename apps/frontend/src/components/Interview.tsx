@@ -40,7 +40,9 @@ export function Interview() {
             });
 
             const mediaRecorder = new MediaRecorder(ms, { mimeType: 'audio/webm' });
-            mediaRecorder.start(250)
+            mediaRecorder.start(250);
+            connection.connect();
+            await connection.waitForOpen();
 
 
 
