@@ -40,9 +40,9 @@ export async function initsideband(callId: string, interviewId: string) {
             const assistantMessage = contents.filter( x => x.type === "output_audio").join("");
             await prisma.data.create({
                 data: {
-                    ,
-                    type:
-                    message:
+                    interviewId,
+                    type: "Assistant",
+                    message: assistantMessage
                 }
             })
         }
