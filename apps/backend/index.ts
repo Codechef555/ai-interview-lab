@@ -82,6 +82,7 @@ app.post("/api/v1/session/:interviewId", async (req, res) => {
 });
 
 app.post("/api/v1/session/:interviewId", async(req,res) => {
+    const { message } = req.body;
     
 })
 
