@@ -85,9 +85,9 @@ app.post("/api/v1/session/:interviewId", async(req,res) => {
     const { message } = req.body;
     await prism.message.create{
         data: {
-            interviewId:,
-            type:,
-            message:
+            interviewId: req.params.interviewId,
+            type: 'User',
+            message: message
         }
     }
 })
