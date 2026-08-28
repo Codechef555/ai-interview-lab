@@ -38,8 +38,13 @@ export async function initsideband(callId: string, interviewId: string) {
             parsedMessage.response.output.map( x => contents = [...contents, x.contents...]);
 
             const assistantMessage = contents.filter( x => x.type === "output_audio").join("");
-            
-            console.log(JSON.stringify(parsedMessage));
+            await prisma.data.create({
+                data: {
+                    ,
+                    type:
+                    message:
+                }
+            })
         }
     });
 }
