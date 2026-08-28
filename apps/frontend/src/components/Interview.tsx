@@ -42,6 +42,10 @@ export function Interview() {
             connection.connect();
             await connection.waitForOpen();
 
+            // Send audio data
+            connection.socket.send(audioData);
+
+
 
             //     pc.addTrack(ms.getTracks()[0]!);
 
