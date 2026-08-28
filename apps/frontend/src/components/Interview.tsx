@@ -30,6 +30,8 @@ export function Interview() {
                 punctuate: "true",
                 interim_results: "true",
             });
+
+            connection.on("open", () => console.log("Connection opened"));
             //     pc.addTrack(ms.getTracks()[0]!);
 
             //     // Set up data channel for sending and receiving events
