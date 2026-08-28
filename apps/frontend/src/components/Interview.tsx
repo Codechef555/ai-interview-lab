@@ -27,14 +27,14 @@ export function Interview() {
                 'token',
                 'YOUR_DEEPGRAM_API_KEY'
             ]);
+            socket.onopen = () => {
+                const mediaRecorder = new MediaRecorder(ms, { mimeType: 'audio/webm' });
+                mediaRecorder.start(250);
+                mediaRecorder.addEventListener('dataavailable', (event) => {
+                    socket.send(event.data);
+                })
+            }
 
-            const mediaRecorder = new MediaRecorder(ms, { mimeType: 'audio/webm' });
-            mediaRecorder.start(250);
-            connection.connect();
-            await connection.waitForOpen();
-            mediaRecorder.addEventListener('dataavailable', (event) => {
-                connection.socket.send(event.data);
-            })
 
 
 
