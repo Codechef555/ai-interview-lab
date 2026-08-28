@@ -24,6 +24,7 @@ export function Interview() {
             });
 
             const connection = await client.listen.v1.connect({
+                Authorization: "",
                 model: "nova-3",
                 language: "en",
                 punctuate: "true",
