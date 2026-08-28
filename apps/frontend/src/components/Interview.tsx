@@ -28,12 +28,6 @@ export function Interview() {
                 'YOUR_DEEPGRAM_API_KEY'
             ]);
 
-            connection.on("message", (data) => {
-                if (data.type === "Results") {
-                    console.log(data);
-                }
-            });
-
             const mediaRecorder = new MediaRecorder(ms, { mimeType: 'audio/webm' });
             mediaRecorder.start(250);
             connection.connect();
