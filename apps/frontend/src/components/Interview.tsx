@@ -1,6 +1,7 @@
 import { BACKEND_URL } from "@/lib/config";
 import { useEffect, useRef } from "react";
 import { useParams } from "react-router"
+import { DeepgramClient } from "@deepgram/sdk";
 
 export function Interview() {
     const { InterviewId } = useParams();
