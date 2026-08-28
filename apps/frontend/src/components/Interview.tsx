@@ -39,6 +39,10 @@ export function Interview() {
                 }
             });
 
+            connection.connect();
+            await connection.waitForOpen();
+
+
             //     pc.addTrack(ms.getTracks()[0]!);
 
             //     // Set up data channel for sending and receiving events
