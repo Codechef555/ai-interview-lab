@@ -35,9 +35,11 @@ export function Interview() {
                 })
             }
 
-
-
-
+            socket.onmessage = (message) => {
+                const received = JSON.parse(message.data);
+                const transcript = received.channel.alternative[0].transcript;
+                console.log(transcript);
+            }
 
 
             //     pc.addTrack(ms.getTracks()[0]!);
