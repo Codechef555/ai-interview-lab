@@ -6,6 +6,7 @@ import { DeepgramClient } from "@deepgram/sdk";
 export function Interview() {
     const { InterviewId } = useParams();
     const audioRef = useRef<HTMLAudioElement>(null);
+    const client = new DeepgramClient();
 
     useEffect(() => {
         (async () => {
