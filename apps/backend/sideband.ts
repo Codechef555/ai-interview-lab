@@ -36,6 +36,8 @@ export async function initsideband(callId: string, interviewId: string) {
         if (parsedMessage.type == "response.done") {
             let contents: {type: string, transcript: string}[] = [];
             parsedMessage.response.output.map( x => contents = [...contents, x.contents...]);
+
+            const assistantMessage = contents.filter( x => x.type === "output_audio").join("");
             
             console.log(JSON.stringify(parsedMessage));
         }
