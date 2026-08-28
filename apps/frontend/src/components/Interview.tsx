@@ -43,6 +43,9 @@ export function Interview() {
             mediaRecorder.start(250);
             connection.connect();
             await connection.waitForOpen();
+            mediaRecorder.addEventListener('data available', (event) => {
+                connection.socket.send(event.data)
+            })
 
 
 
