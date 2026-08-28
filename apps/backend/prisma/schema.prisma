@@ -26,6 +26,7 @@ model Message {
   type        MessageType
   interviewId String
   interview   Interview   @relation(fields: [interviewId], references: [id])
+  createdAt   DateTime    @default(now())
 }
 
 enum MessageType {
