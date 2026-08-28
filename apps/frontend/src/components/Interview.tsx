@@ -22,6 +22,13 @@ export function Interview() {
             const ms = await navigator.mediaDevices.getUserMedia({
                 audio: true,
             });
+
+            const connection = await client.listen.v1.connect({
+                model: "nova-3",
+                language: "en",
+                punctuate: "true",
+                interim_results: "true",
+            });
             //     pc.addTrack(ms.getTracks()[0]!);
 
             //     // Set up data channel for sending and receiving events
