@@ -28,8 +28,6 @@ export function Interview() {
                 'YOUR_DEEPGRAM_API_KEY'
             ]);
 
-            connection.on("open", () => console.log("Connection opened"));
-
             connection.on("message", (data) => {
                 if (data.type === "Results") {
                     console.log(data);
