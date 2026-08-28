@@ -31,7 +31,7 @@ export async function initsideband(callId: string, interviewId: string) {
     });
 
     // Listen for and parse server events
-    ws.on("message", function incoming(message) {
+    ws.on("message", async function incoming(message) {
         const parsedMessage = JSON.parse(message.toString())
         if (parsedMessage.type == "response.done") {
             let contents: {type: string, transcript: string}[] = [];

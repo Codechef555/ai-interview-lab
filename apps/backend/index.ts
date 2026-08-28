@@ -80,4 +80,9 @@ app.post("/api/v1/session/:interviewId", async (req, res) => {
         res.status(500).json({ error: "Failed to generate token" });
     }
 });
+
+app.post("/api/v1/session/:interviewId", async(req,res) => {
+    
+})
+
 app.listen(3001);
