@@ -40,6 +40,7 @@ export function Interview() {
             });
 
             const mediaRecorder = new MediaRecorder(ms, { mimeType: 'audio/webm' });
+            mediaRecorder.start(250)
 
 
 
