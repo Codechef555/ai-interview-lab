@@ -32,6 +32,13 @@ export function Interview() {
             });
 
             connection.on("open", () => console.log("Connection opened"));
+
+            connection.on("message", (data) => {
+                if (data.type === "Results") {
+                    console.log(data);
+                }
+            });
+
             //     pc.addTrack(ms.getTracks()[0]!);
 
             //     // Set up data channel for sending and receiving events
