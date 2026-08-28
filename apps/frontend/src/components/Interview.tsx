@@ -39,11 +39,10 @@ export function Interview() {
                 }
             });
 
-            connection.connect();
-            await connection.waitForOpen();
+            const mediaRecorder = new MediaRecorder(ms, { mimeType: 'audio/webm' });
 
-            // Send audio data
-            connection.socket.send(audioData);
+
+
 
 
 
