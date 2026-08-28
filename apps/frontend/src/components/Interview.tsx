@@ -23,13 +23,10 @@ export function Interview() {
                 audio: true,
             });
 
-            const connection = await client.listen.v1.connect({
-                Authorization: "",
-                model: "nova-3",
-                language: "en",
-                punctuate: "true",
-                interim_results: "true",
-            });
+            const socket = new WebSocket('wss://api.deepgram.com/v1/listen', [
+                'token',
+                'YOUR_DEEPGRAM_API_KEY'
+            ]);
 
             connection.on("open", () => console.log("Connection opened"));
 
@@ -46,7 +43,6 @@ export function Interview() {
             mediaRecorder.addEventListener('dataavailable', (event) => {
                 connection.socket.send(event.data);
             })
-
 
 
 
