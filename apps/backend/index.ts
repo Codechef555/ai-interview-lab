@@ -47,6 +47,7 @@ app.post("api/v1/pre-interview", async (req, res) => {
 
 })
 
+#Provides info about model and its voice avatar
 app.post("/api/v1/session/:interviewId", async (req, res) => {
     const sessionConfig = JSON.stringify({
         type: "realtime",
