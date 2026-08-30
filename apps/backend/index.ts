@@ -82,6 +82,7 @@ app.post("/api/v1/session/:interviewId", async (req, res) => {
     }
 });
 
+#registers the data based on the each and every unique id for slot
 app.post("/api/v1/session/user/response/:interviewId", async(req,res) => {
     const { message } = req.body;
     await prism.message.create({
