@@ -12,7 +12,7 @@ app.use(cors());
 // Parse raw SDP payloads posted from the browser
 app.use(express.text({ type: ["application/sdp", "text/plain"] }));
 
-
+#added post method to reject if the pre interview is not decided yet
 app.post("api/v1/pre-interview", async (req, res) => {
     const { success, data } = PreInterviewBody.safeParse(req.body);
 
