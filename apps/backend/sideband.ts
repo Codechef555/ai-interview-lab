@@ -8,7 +8,7 @@ export async function initsideband(callId: string, interviewId: string) {
             Authorization: "Bearer " + process.env.OPENAI_KEY,
         },
     });
-
+// connect the id if the interview exist with the user id
     const interview = await prisma.interview.findFirst({
         where: {
             id: interviewId
@@ -36,7 +36,7 @@ export async function initsideband(callId: string, interviewId: string) {
         if (parsedMessage.type == "response.done") {
             let contents: {type: string, transcript: string}[] = [];
             parsedMessage.response.output.map( x => contents = [...contents, x.contents...]);
-
+// filter out the audio with saved format
             const assistantMessage = contents.filter( x => x.type === "output_audio").map(x => x.transcript).join("");
             await prisma.data.create({
                 data: {
