@@ -28,7 +28,7 @@ export function Result() {
         }, 5 * 1000)
 
         return () => {
-
+            clearInterval(intervalId);
         }
     }, [InterviewId]);
 
