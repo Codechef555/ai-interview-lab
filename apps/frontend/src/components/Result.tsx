@@ -20,12 +20,16 @@ export function Result() {
             .then(response => {
                 setResult(response.data);
             })
-        setInterval(() => {
+        let intervalId = setInterval(() => {
             axios.get(`${BACKEND_URL}/api/v1/result/${InterviewId}`)
                 .then(response => {
                     setResult(response.data);
                 })
         }, 5 * 1000)
+
+        return () => {
+
+        }
     }, [InterviewId]);
 
     return <div>
