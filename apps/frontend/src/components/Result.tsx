@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react"
 
+interface Result {
+    transcript: { type: "Assistant" | "User", content: String }[],
+    score: number,
+    feedback: string,
+}
 export function Result() {
-
-    interface Result {
-        transcript: { type: "Assistant" | "User", content: String }[],
-        score: number,
-        feedback: string,
-    }
     const [result, setResult] = useState<Result>({
         score: 0,
         feedback: '',
