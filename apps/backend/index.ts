@@ -12,7 +12,7 @@ app.use(cors());
 // Parse raw SDP payloads posted from the browser
 app.use(express.text({ type: ["application/sdp", "text/plain"] }));
 
-
+#added post method to reject if the pre interview is not decided yet
 app.post("api/v1/pre-interview", async (req, res) => {
     const { success, data } = PreInterviewBody.safeParse(req.body);
 
@@ -47,6 +47,7 @@ app.post("api/v1/pre-interview", async (req, res) => {
 
 })
 
+#Provides info about model and its voice avatar
 app.post("/api/v1/session/:interviewId", async (req, res) => {
     const sessionConfig = JSON.stringify({
         type: "realtime",
@@ -80,4 +81,19 @@ app.post("/api/v1/session/:interviewId", async (req, res) => {
         res.status(500).json({ error: "Failed to generate token" });
     }
 });
+
+#registers the data based on the each and every unique id for slot
+app.post("/api/v1/session/user/response/:interviewId", async(req,res) => {
+    const { message } = req.body;
+    await prism.message.create({
+        data: {
+            interviewId: req.params.interviewId,
+            type: 'User',
+            message: message
+        }
+    })
+
+    res.json({ message : "message saved"});
+})
+
 app.listen(3001);
