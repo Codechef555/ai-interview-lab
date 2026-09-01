@@ -17,8 +17,10 @@ export function Result() {
     })
     useEffect(() => {
         axios.get(`${BACKEND_URL}/api/v1/result/${InterviewId}`)
-            .then()
-    }, [])
+            .then(response => {
+                setResult(response.data),
+            })
+    }, [InterviewId])
     return <div>
         Result
     </div>
