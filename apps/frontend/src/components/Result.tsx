@@ -1,3 +1,5 @@
+import { BACKEND_URL } from "@/lib/config";
+import axios from "axios";
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 
@@ -14,7 +16,8 @@ export function Result() {
         transcript: []
     })
     useEffect(() => {
-
+        axios.get(`${BACKEND_URL}/api/v1/result/${InterviewId}`)
+            .then()
     }, [])
     return <div>
         Result
