@@ -2,7 +2,7 @@ import { BACKEND_URL } from "@/lib/config";
 import { useEffect, useRef } from "react";
 import { useParams } from "react-router"
 import { DeepgramClient } from "@deepgram/sdk";
-
+import axios from "axios";
 export function Interview() {
     const { InterviewId } = useParams();
     const audioRef = useRef<HTMLAudioElement>(null);
@@ -41,8 +41,8 @@ export function Interview() {
 
                 if (transcript) {
                     console.log(transcript);
-                    axios.post(`${BACKEND_URL}/api/v1/session/user/response/${InterviewId}`,{
-                        message: transcript;
+                    axios.post(`${BACKEND_URL}/api/v1/session/user/response/${InterviewId}`, {
+                        message: transcript
                     })
                 }
             }
