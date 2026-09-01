@@ -3,7 +3,9 @@ import { useEffect, useState } from "react"
 export function Result() {
 
     interface Result {
-        transcript: { type: "Assistant" | "User", content: String }
+        transcript: { type: "Assistant" | "User", content: String },
+        score: number,
+
     }
     const [result, setResult] = useState({
         score: 0,
