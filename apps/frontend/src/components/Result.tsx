@@ -18,9 +18,16 @@ export function Result() {
     useEffect(() => {
         axios.get(`${BACKEND_URL}/api/v1/result/${InterviewId}`)
             .then(response => {
-                setResult(response.data),
+                setResult(response.data);
             })
-    }, [InterviewId])
+        setInterval(() => {
+            axios.get(`${BACKEND_URL}/api/v1/result/${InterviewId}`)
+                .then(response => {
+                    setResult(response.data);
+                })
+        }, 5 * 1000)
+    }, [InterviewId]);
+
     return <div>
         Result
     </div>
