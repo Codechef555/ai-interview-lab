@@ -8,7 +8,7 @@ bun install
 
 To start a development server:
 
-```bash
+```bash command
 bun dev
 ```
 
