@@ -37,6 +37,6 @@ export function Result() {
         Feedback - {result.feedback}
 
         Transcript -
-        {result.transcript.sort()}
+        {result.transcript.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime())}
     </div>
 }
