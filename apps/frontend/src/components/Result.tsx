@@ -37,6 +37,8 @@ export function Result() {
         Feedback - {result.feedback}
 
         Transcript -
-        {result.transcript.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime())}
+        {result.transcript.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime()).map(x => <div>
+            {x.type} - {x.content}
+        </div>)}
     </div>
 }
