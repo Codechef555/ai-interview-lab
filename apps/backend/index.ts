@@ -100,6 +100,9 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
     const interview = await prisma.interview.findFirst({
         where: {
             id: req.params.interviewId
+        },
+        include: {
+            conversations: true
         }
     })
 })
