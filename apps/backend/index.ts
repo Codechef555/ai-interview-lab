@@ -12,7 +12,7 @@ app.use(cors());
 // Parse raw SDP payloads posted from the browser
 app.use(express.text({ type: ["application/sdp", "text/plain"] }));
 
-#added post method to reject if the pre interview is not decided yet
+//added post method to reject if the pre interview is not decided yet
 app.post("api/v1/pre-interview", async (req, res) => {
     const { success, data } = PreInterviewBody.safeParse(req.body);
 
@@ -47,7 +47,7 @@ app.post("api/v1/pre-interview", async (req, res) => {
 
 })
 
-#Provides info about model and its voice avatar
+//Provides info about model and its voice avatar
 app.post("/api/v1/session/:interviewId", async (req, res) => {
     const sessionConfig = JSON.stringify({
         type: "realtime",
