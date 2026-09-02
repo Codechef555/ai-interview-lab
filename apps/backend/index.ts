@@ -107,9 +107,10 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
     })
 
     res.json({
-        transcript: interview?.conversations.map(c => {
-
-        })
+        transcript: interview?.conversations.map(c => ({
+            type: c.type,
+            content: c.message
+        }))
     })
 })
 
