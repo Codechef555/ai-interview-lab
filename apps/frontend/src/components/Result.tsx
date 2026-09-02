@@ -37,5 +37,6 @@ export function Result() {
         Feedback - {result.feedback}
 
         Transcript -
+        {result.transcript.sort()}
     </div>
 }
