@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 
 interface Result {
-    transcript: { type: "Assistant" | "User", content: String }[],
+    transcript: { type: "Assistant" | "User", content: String, createdAt: Date }[],
     score: number,
     feedback: string,
 }
