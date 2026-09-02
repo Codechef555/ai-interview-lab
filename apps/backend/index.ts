@@ -105,6 +105,12 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
             conversations: true
         }
     })
+
+    res.json({
+        transcript: interview?.conversations.map(c => {
+
+        })
+    })
 })
 
 app.listen(3001);
