@@ -18,7 +18,7 @@ model Interview {
   status         InterviewStatus
   score          Int             @default(0)
   conversations  Message[]
-  feedback       String?
+  feedback       String
 }
 
 model Message {
