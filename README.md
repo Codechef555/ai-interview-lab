@@ -1,6 +1,6 @@
 AI Interview Lab 🤖
 
-«An AI-powered technical interview platform that combines conversational AI, real-time voice interaction, GitHub-based candidate context, and interview evaluation.»
+«An AI-powered technical interview platform that combines conversational AI, real-time voice interaction, GitHub-based candidate context, and interview evaluation of era.»
 
 ""License" (https://img.shields.io/badge/license-MIT-blue.svg)" (LICENSE)
 ""Runtime" (https://img.shields.io/badge/runtime-Bun-black.svg)" (https://bun.sh/)
