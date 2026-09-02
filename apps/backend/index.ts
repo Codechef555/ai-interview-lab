@@ -82,10 +82,10 @@ app.post("/api/v1/session/:interviewId", async (req, res) => {
     }
 });
 
-#registers the data based on the each and every unique id for slot
-app.post("/api/v1/session/user/response/:interviewId", async(req,res) => {
+//registers the data based on the each and every unique id for slot
+app.post("/api/v1/session/user/response/:interviewId", async (req, res) => {
     const { message } = req.body;
-    await prism.message.create({
+    await prisma.message.create({
         data: {
             interviewId: req.params.interviewId,
             type: 'User',
@@ -93,7 +93,7 @@ app.post("/api/v1/session/user/response/:interviewId", async(req,res) => {
         }
     })
 
-    res.json({ message : "message saved"});
+    res.json({ message: "message saved" });
 })
 
 app.listen(3001);
