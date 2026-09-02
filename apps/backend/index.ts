@@ -96,4 +96,12 @@ app.post("/api/v1/session/user/response/:interviewId", async (req, res) => {
     res.json({ message: "message saved" });
 })
 
+app.get("/api/v1/result/:interviewId", async (req, res) => {
+    const interview = await prisma.interview.findFirst({
+        where: {
+            id: req.params.interviewId
+        }
+    })
+})
+
 app.listen(3001);
