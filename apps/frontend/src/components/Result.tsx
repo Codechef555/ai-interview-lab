@@ -35,5 +35,7 @@ export function Result() {
     return <div>
         Score - {result.score}
         Feedback - {result.feedback}
+
+        Transcript -
     </div>
 }
