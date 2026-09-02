@@ -33,6 +33,7 @@ export function Result() {
     }, [InterviewId]);
 
     return <div>
-        Result
+        Score - {result.score}
+        Feedback - {result.feedback}
     </div>
 }
