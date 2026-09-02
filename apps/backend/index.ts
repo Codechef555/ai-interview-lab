@@ -107,8 +107,10 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
     })
 
     if (!interview) {
-        res.status(411).
-            return
+        res.status(411).json({
+            message: "interview not found"
+        })
+        return
     }
     res.json({
         score: interview?.score,
