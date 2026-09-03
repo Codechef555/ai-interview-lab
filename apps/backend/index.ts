@@ -5,6 +5,7 @@ import { scrapeGithub } from "./scrapers/github";
 import cors from "cors";
 import { prisma } from "./db";
 import { initsideband } from "./sideband";
+import { calculateResult } from "./result";
 const app = express();
 
 app.use(express.json());
@@ -111,7 +112,7 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
     }
 
     if (interview.status === "Inprogress") {
-
+        await calculateResult(interview.conversations,)
     }
     res.json({
         score: interview?.score,
