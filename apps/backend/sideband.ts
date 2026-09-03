@@ -36,9 +36,9 @@ export async function initsideband(callId: string, interviewId: string) {
         if (parsedMessage.type == "response.done") {
             let contents: { type: string, transcript: string }[] = [];
 
-            parsedMessage.response.output.map(x => contents = [...contents, ...x.contents]);
+            parsedMessage.response.output.map((x: any) => contents = [...contents, ...x.contents]);
             // filter out the audio with saved format
-            const assistantMessage = contents.filter(x => x.type === "output_audio").map(x => x.transcript).join("");
+            const assistantMessage = contents.filter((x: any) => x.type === "output_audio").map((x: any) => x.transcript).join("");
             await prisma.message.create({
                 data: {
                     interviewId,

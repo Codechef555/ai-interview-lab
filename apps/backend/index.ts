@@ -22,19 +22,18 @@ app.post("api/v1/pre-interview", async (req, res) => {
         });
         return
     }
-
     //const githubUrl = data.github.endsWith("/") ? data.github.slice(0, -1) : data.github;
     //const githubUsername = githubUrl.split("/").pop();
     //const githubData = await scrapeGithub(githubUsername);
 
-    const githubUrl = data.github.endsWith("/")
-        ? data.github.slice(0, -1)
-        : data.github;
+    const githubUrl = data.github.endsWith("/") ? data.github.slice(0, -1) : data.github;
     const githubUsername = githubUrl.split("/").pop();
+
+    const githubData = await scrapeGithub(githubUsername);
+
     if (!githubUsername) {
         throw new Error("Invalid GitHub URL");
     }
-    const githubData = await scrapeGithub(githubUsername);
 
     const interview = await prisma.interview.create({
         data: {
@@ -42,9 +41,7 @@ app.post("api/v1/pre-interview", async (req, res) => {
             status: "Pre",
         }
     })
-
     res.json({ id: interview.id });
-
 })
 
 //Provides info about model and its voice avatar
@@ -112,15 +109,17 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
         })
         return
     }
-    res.json({
-        score: interview?.score,
-        feedback: interview?.feedback,
-        transcript: interview?.conversations.map(c => ({
-            type: c.type,
-            content: c.message,
-            createdAt: c.createdAt
-        }))
-    })
+
+    if ()
+        res.json({
+            score: interview?.score,
+            feedback: interview?.feedback,
+            transcript: interview?.conversations.map(c => ({
+                type: c.type,
+                content: c.message,
+                createdAt: c.createdAt
+            }))
+        })
 })
 
 app.listen(3001);
