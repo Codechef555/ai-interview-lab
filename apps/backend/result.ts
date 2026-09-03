@@ -1,7 +1,8 @@
 import { z } from "zod";
 import { GoogleGenAI } from "@google/genai";
 import { zodToJsonSchema } from "zod-to-json-schema"
-const ai = new GoogleGenAI({ process.env.GEMINI_API_KEY })
+
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
 export const calculateResult(messages: { type: "Assistant" | "User", message: string, createdAt: Date }[]){
     const response = await ai.models.generateContent({
         model: "gemini-3.5-flash",
