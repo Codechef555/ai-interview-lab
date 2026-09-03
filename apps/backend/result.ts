@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new G
+const ai = new GoogleGenAI({ process.env.GEMINI_API_KEY })
 export const calculateResult(messages: { type: "Assistant" | "User", message: string, createdAt: Date }[]){
     const response = await ai.models.generateContent({
         model: "gemini-3.5-flash",
