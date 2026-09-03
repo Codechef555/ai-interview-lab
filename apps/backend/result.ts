@@ -9,7 +9,6 @@ const outputSchema = z.object({
     score: z.int().describe("Score out of 10 for their interview.")
 });
 
-
 const RESULT_PROMPT = `
     You are an expert evaluator. Your job is to evaluate the users interview. Give them a score out of 10
     and also let them know any feedback you have about thier interview.
@@ -24,7 +23,7 @@ const RESULT_PROMPT = `
     {{USER_TRANSCRIPT}}
 `
 
-export const calculateResult(messages: { type: "Assistant" | "User", message: string, createdAt: Date }[]) {
+export async function calculateResult(messages: { type: "Assistant" | "User", message: string, createdAt: Date }[]) {
     const response = await ai.models.generateContent({
         model: "gemini-3.5-flash",
         contents: RESULT_PROMPT.replace(`{{USER_TRANSCRIPT}}`, JSON.stringify(messages)),
