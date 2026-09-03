@@ -23,7 +23,8 @@
     "https-proxy-agent": "^9.1.0",
     "pg": "^8.23.0",
     "ws": "^8.21.3",
-    "zod": "^4.4.3"
+    "zod": "^4.4.3",
+    "zod-to-json-schema": "^3.25.2"
   },
   "scripts": {
     "postinstall": "prisma skills sync || exit 0"
