@@ -112,7 +112,7 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
     }
 
     if (interview.status === "Inprogress") {
-        await calculateResult(interview.conversations,)
+        const result = await calculateResult(interview.conversations)
     }
     res.json({
         score: interview?.score,
