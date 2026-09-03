@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { GoogleGenAI } from "@google/genai";
 import { zodToJsonSchema } from "zod-to-json-schema"
+import axios from "axios";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
 const outputSchema = z.object({
