@@ -5,7 +5,7 @@ import { zodToJsonSchema } from "zod-to-json-schema"
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
 const outputSchema = z.object({
     feedback: z.string().describe("Feedback for the User"),
-    score:
+    score: z.int().describe("Score out of 10 for their interview.")
 })
 export const calculateResult(messages: { type: "Assistant" | "User", message: string, createdAt: Date }[]){
     const response = await ai.models.generateContent({
