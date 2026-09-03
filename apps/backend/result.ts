@@ -1,3 +1,6 @@
+import { z } from "zod";
+
+
 export const calculateResult(messages: { type: "Assistant" | "User", message: string, createdAt: Date }[]){
     const response = await ai.models.generateContent({
         model: "gemini-3.5-flash",
