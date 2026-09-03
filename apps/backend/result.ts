@@ -23,7 +23,7 @@ const RESULT_PROMPT = `
     {{USER_TRANSCRIPT}}
 `
 
-export const calculateResult(messages: { type: "Assistant" | "User", message: string, createdAt: Date }[]){
+export const calculateResult(messages: { type: "Assistant" | "User", message: string, createdAt: Date }[]) {
     const response = await ai.models.generateContent({
         model: "gemini-3.5-flash",
         contents: RESULT_PROMPT.replace(`{{USER_TRANSCRIPT}}`, JSON.stringify(messages)),
