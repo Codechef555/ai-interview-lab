@@ -1,6 +1,6 @@
 AI Interview Lab 🤖
 
-«An AI-powered technical interview platform that combines conversational AI, real-time voice interaction, GitHub-based candidate context, and interview evaluation of era.
+An AI-powered technical interview platform that combines conversational AI, real-time voice interaction, GitHub-based candidate context, and interview evaluation of era.
 
 
 Overview
