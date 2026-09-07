@@ -3,6 +3,8 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 
+// added transcript and score with feedback
+
 interface Result {
     transcript: { type: "Assistant" | "User", content: String, createdAt: Date }[],
     score: number,
