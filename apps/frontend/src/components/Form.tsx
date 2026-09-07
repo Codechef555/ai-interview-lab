@@ -9,6 +9,7 @@ export function Form() {
     const [github, setGithub] = useState("");
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
+// provide a valid github url 
 
     async function onSubmit() {
         if (!github) {
