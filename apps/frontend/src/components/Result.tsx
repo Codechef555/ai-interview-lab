@@ -12,6 +12,7 @@ interface Result {
     transcript: { type: "Assistant" | "User", content: String, createdAt: Date }[],
     score: number,
     feedback: string,
+    status: "Done" | "Inprogress" | "Pre"
 }
 >>>>>>> 707a1321a6cd0433a4caec2783cb11d98afe7a1b
 export function Result() {
