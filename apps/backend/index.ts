@@ -119,7 +119,8 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
             },
             data: {
                 status: "Done",
-                feedback: result.feedback
+                feedback: result.feedback,
+                score: result.score
             }
         }) 
 
