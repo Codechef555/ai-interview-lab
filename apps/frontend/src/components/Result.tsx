@@ -26,7 +26,8 @@ export function Result() {
     const [result, setResult] = useState<Result>({
         score: 0,
         feedback: '',
-        transcript: []
+        transcript: [],
+        status: "Pre"
     })
     useEffect(() => {
         axios.get(`${BACKEND_URL}/api/v1/result/${InterviewId}`)
