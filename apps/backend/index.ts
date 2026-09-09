@@ -110,6 +110,17 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
         })
         return
     }
+
+    res.json({
+        score: interview?.score,
+        feedback: interview?.feedback,
+        transcript: interview?.conversations.map(c => ({
+            type: c.type,
+            content: c.message,
+            createdAt: c.createdAt
+        }))
+    })
+    
 //if the interview in progress this function should execute 
     if (interview.status === "Inprogress") {
         const result = await calculateResult(interview.conversations)
@@ -126,17 +137,6 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
 
     }
 
-
-
-    res.json({
-        score: interview?.score,
-        feedback: interview?.feedback,
-        transcript: interview?.conversations.map(c => ({
-            type: c.type,
-            content: c.message,
-            createdAt: c.createdAt
-        }))
-    })
 })
 
 app.listen(3001);
