@@ -113,16 +113,16 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
 //if the interview in progress this function should execute 
     if (interview.status === "Inprogress") {
         const result = await calculateResult(interview.conversations)
-            prisma.interview.update({
-                where: {
+        await prisma.interview.update({
+            where: {
                 id: req.params.interviewId;
-                },
-                data: {
-                    status: "Done",
-                    feedback: result.feedback
-                }
-            }) 
-            
+            },
+            data: {
+                status: "Done",
+                feedback: result.feedback
+            }
+        }) 
+
     }
 
 
