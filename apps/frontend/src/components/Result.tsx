@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+import { useEffect } from "react"
+=======
 import { BACKEND_URL } from "@/lib/config";
 import axios from "axios";
 import { useEffect, useState } from "react"
@@ -10,7 +13,14 @@ interface Result {
     score: number,
     feedback: string,
 }
+>>>>>>> 707a1321a6cd0433a4caec2783cb11d98afe7a1b
 export function Result() {
+<<<<<<< HEAD
+    useEffect(() => {
+
+    }, []);
+    
+=======
     const { InterviewId } = useParams();
     const [result, setResult] = useState<Result>({
         score: 0,
@@ -34,6 +44,7 @@ export function Result() {
         }
     }, [InterviewId]);
 
+>>>>>>> 707a1321a6cd0433a4caec2783cb11d98afe7a1b
     return <div>
         Score - {result.score}
         Feedback - {result.feedback}
