@@ -114,6 +114,9 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
     if (interview.status === "Inprogress") {
         const result = await calculateResult(interview.conversations)
     }
+
+    prisma.interview.update() 
+
     res.json({
         score: interview?.score,
         feedback: interview?.feedback,
