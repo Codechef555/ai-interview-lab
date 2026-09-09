@@ -115,7 +115,11 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
         const result = await calculateResult(interview.conversations)
     }
 
-    prisma.interview.update() 
+    prisma.interview.update({
+        where: {
+            id: req.params.interviewId;
+        }
+    }) 
 
     res.json({
         score: interview?.score,
