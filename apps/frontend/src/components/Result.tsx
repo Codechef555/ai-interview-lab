@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 import { useEffect } from "react"
-=======
 import { BACKEND_URL } from "@/lib/config";
 import axios from "axios";
 import { useEffect, useState } from "react"
@@ -50,6 +48,7 @@ export function Result() {
     return <div>
         Score - {result.score}
         Feedback - {result.feedback}
+// add the timestamp for the interview session to check the time needed to answer the question from the candidate side 
 
         Transcript -
         {result.transcript.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime()).map(x => <div>
