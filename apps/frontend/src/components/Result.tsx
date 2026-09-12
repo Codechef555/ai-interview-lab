@@ -34,6 +34,9 @@ export function Result() {
             axios.get(`${BACKEND_URL}/api/v1/result/${InterviewId}`)
                 .then(response => {
                     setResult(response.data);
+                    if (response.data.status === "Done") {
+                        clearInterval(intervalId)
+                    }
                 })
         }, 5 * 1000)
 
@@ -41,6 +44,7 @@ export function Result() {
             clearInterval(intervalId);
         }
     }, [InterviewId]);
+
     //add the timestamp for the interview session to check the time needed to answer the question from the candidate side
 
     return <div>
@@ -52,8 +56,6 @@ export function Result() {
             {result.transcript.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime()).map(x => <div>
                 {x.type} - {x.content}
             </div>)}
-
         </div>}
-
     </div>
 }
