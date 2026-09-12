@@ -1,14 +1,13 @@
 import { z } from "zod";
 import { GoogleGenAI } from "@google/genai";
-import { zodToJsonSchema } from "zod-to-json-schema"
-import axios from "axios";
+import { zodToJsonSchema } from "zod-to-json-schema";
 
 //Insert the gemini api key to process the GoogleGenAI platform 
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 const outputSchema = z.object({
     feedback: z.string().describe("Feedback for the User"),
-    score: z.int().describe("Score out of 10 for their interview.")
+    score: z.number().int().describe("Score out of 10 for their interview.")
 });
 
 //Master prompt to process the result 
@@ -24,15 +23,16 @@ const RESULT_PROMPT = `
 
     DO NOT RETURN ANY OTHER TEXT
     {{USER_TRANSCRIPT}}
-`
+`;
 
 //Function to evaluate the result from the data 
 export async function calculateResult(messages: { type: "Assistant" | "User", message: string, createdAt: Date }[]) {
     const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
+        model: "gemini-2.5-flash",
         contents: RESULT_PROMPT.replace(`{{USER_TRANSCRIPT}}`, JSON.stringify(messages)),
         config: {
-            responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(outputSchema) } },
+            responseMimeType: "application/json",
+            responseSchema: zodToJsonSchema(outputSchema as any) as any,
         },
     });
     console.log(response.text!);
