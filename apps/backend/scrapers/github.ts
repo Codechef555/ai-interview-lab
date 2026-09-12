@@ -15,6 +15,7 @@ export async function scrapeGithub(username: string) {
     //     protocol: "http"
     // }
     // });
+// adding brief details about user 
     return userRepos.data.map((x: any) => ({
         description: x.description,
         name: x.name,
