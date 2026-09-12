@@ -24,8 +24,8 @@ app.post("api/v1/pre-interview", async (req, res) => {
         return
     }
     //const githubUrl = data.github.endsWith("/") ? data.github.slice(0, -1) : data.github;
-    //const githubUsername = githubUrl.split("/").pop();
-    //const githubData = await scrapeGithub(githubUsername);
+    //const githubUsername = githubUrl.split("/").pop(); 
+    //const githubData = await scrapeGithub(githubUsername); Error thrown 
 
     const githubUrl = data.github.endsWith("/") ? data.github.slice(0, -1) : data.github;
     const githubUsername = githubUrl.split("/").pop();
