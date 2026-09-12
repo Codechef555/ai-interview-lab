@@ -119,7 +119,8 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
             type: c.type,
             content: c.message,
             createdAt: c.createdAt
-        }))
+        })),
+        status: interview.status
     })
 
     //if the interview in progress this function should execute 
