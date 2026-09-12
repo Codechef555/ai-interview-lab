@@ -44,12 +44,16 @@ export function Result() {
     //add the timestamp for the interview session to check the time needed to answer the question from the candidate side
 
     return <div>
-        Score - {result.score}
-        Feedback - {result.feedback}
+        {result.status == "Done" && <div>
+            Score - {result.score}
+            Feedback - {result.feedback}
 
-        Transcript -
-        {result.transcript.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime()).map(x => <div>
-            {x.type} - {x.content}
-        </div>)}
+            Transcript -
+            {result.transcript.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime()).map(x => <div>
+                {x.type} - {x.content}
+            </div>)}
+
+        </div>}
+
     </div>
 }
