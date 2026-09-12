@@ -48,6 +48,7 @@ export function Result() {
     //add the timestamp for the interview session to check the time needed to answer the question from the candidate side
 
     return <div>
+        Result
         {result.status == "Done" && <div>
             Score - {result.score}
             Feedback - {result.feedback}
