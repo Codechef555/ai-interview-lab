@@ -121,9 +121,9 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
             createdAt: c.createdAt
         }))
     })
-    
-//if the interview in progress this function should execute 
-    if (interview.status != "Inprogress") {
+
+    //if the interview in progress this function should execute 
+    if (interview.status != "Done") {
         const result = await calculateResult(interview.conversations)
         await prisma.interview.update({
             where: {
@@ -134,7 +134,7 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
                 feedback: result.feedback,
                 score: result.score
             }
-        }) 
+        })
 
     }
 
