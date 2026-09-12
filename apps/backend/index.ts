@@ -14,36 +14,37 @@ app.use(cors());
 app.use(express.text({ type: ["application/sdp", "text/plain"] }));
 
 //added post method to reject if the pre interview is not decided yet
-app.post("api/v1/pre-interview", async (req, res) => {
+app.post("/api/v1/pre-interview", async (req, res) => {
     const { success, data } = PreInterviewBody.safeParse(req.body);
 
     if (!success) {
         res.status(411).json({
             message: "Incorrect body"
         });
-        return
+        return;
     }
-    //const githubUrl = data.github.endsWith("/") ? data.github.slice(0, -1) : data.github;
-    //const githubUsername = githubUrl.split("/").pop(); 
-    //const githubData = await scrapeGithub(githubUsername); Error thrown 
 
     const githubUrl = data.github.endsWith("/") ? data.github.slice(0, -1) : data.github;
     const githubUsername = githubUrl.split("/").pop();
 
-    const githubData = await scrapeGithub(githubUsername);
-
     if (!githubUsername) {
-        throw new Error("Invalid GitHub URL");
+        res.status(400).json({
+            message: "Invalid GitHub URL"
+        });
+        return;
     }
+
+    const githubData = await scrapeGithub(githubUsername);
 
     const interview = await prisma.interview.create({
         data: {
             githubMetadata: JSON.stringify(githubData),
             status: "Pre",
+            feedback: "",
         }
-    })
+    });
     res.json({ id: interview.id });
-})
+});
 
 //Provides info about model and its voice avatar
 app.post("/api/v1/session/:interviewId", async (req, res) => {
@@ -126,7 +127,7 @@ app.get("/api/v1/result/:interviewId", async (req, res) => {
         const result = await calculateResult(interview.conversations)
         await prisma.interview.update({
             where: {
-                id: req.params.interviewId;
+                id: req.params.interviewId,
             },
             data: {
                 status: "Done",

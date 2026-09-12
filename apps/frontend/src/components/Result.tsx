@@ -12,14 +12,12 @@ interface Result {
     feedback: string,
     status: "Done" | "Inprogress" | "Pre"
 }
->>>>>>> 707a1321a6cd0433a4caec2783cb11d98afe7a1b
 export function Result() {
-<<<<<<< HEAD
+
     useEffect(() => {
 
     }, []);
-    
-=======
+
     const { InterviewId } = useParams();
     const [result, setResult] = useState<Result>({
         score: 0,
@@ -43,12 +41,11 @@ export function Result() {
             clearInterval(intervalId);
         }
     }, [InterviewId]);
+    //add the timestamp for the interview session to check the time needed to answer the question from the candidate side
 
->>>>>>> 707a1321a6cd0433a4caec2783cb11d98afe7a1b
     return <div>
         Score - {result.score}
         Feedback - {result.feedback}
-// add the timestamp for the interview session to check the time needed to answer the question from the candidate side 
 
         Transcript -
         {result.transcript.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime()).map(x => <div>
