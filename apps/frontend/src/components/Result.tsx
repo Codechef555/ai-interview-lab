@@ -6,13 +6,15 @@ import { Bot, Loader2, Sparkles, User } from "lucide-react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 
+// added interface result 
+
 interface ResultData {
     transcript: { type: "Assistant" | "User"; content: string; createdAt: string }[];
     score: number;
     feedback: string;
     status: "Done" | "InProgress" | "Pre";
 }
-
+// added function for result to list out the feedback, score and transcript 
 export function Result() {
     const { interviewId } = useParams();
     const navigate = useNavigate();
@@ -40,7 +42,7 @@ export function Result() {
     }, [interviewId]);
 
     const ready = result.status === "Done";
-
+// added frontend ui for ghe result section 
     return (
         <main className="mx-auto min-h-screen w-full max-w-3xl px-6 py-12">
             <header className="mb-10 flex items-center justify-between">
