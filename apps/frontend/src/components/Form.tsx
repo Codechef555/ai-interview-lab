@@ -18,12 +18,14 @@ export function Form() {
             return;
         }
         setLoading(true);
+// added backend api to connect the info 
         const response = await axios.post(`${BACKEND_URL}/api/v1/pre-interview`, {
             github
         })
         navigate(`/interview/${response.data.id}`);
 
     }
+// added web ui 
     return (
         <div className="h-screen w-screen flex justify-center item-center">
             <div>
