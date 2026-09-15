@@ -33,6 +33,8 @@ export function Result() {
             });
 
         fetchResult();
+// added interval for 5 sec
+
         const intervalId = setInterval(async () => {
             const s = await fetchResult();
             if (s === "Done") clearInterval(intervalId);
