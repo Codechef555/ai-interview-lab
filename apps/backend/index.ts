@@ -94,7 +94,7 @@ app.post("/api/v1/session/user/response/:interviewId", async (req, res) => {
 
     res.json({ message: "message saved" });
 })
-
+// if the user id exists fetch it with conversations history 
 app.get("/api/v1/result/:interviewId", async (req, res) => {
     const interview = await prisma.interview.findFirst({
         where: {
