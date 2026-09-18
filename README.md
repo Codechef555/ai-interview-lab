@@ -4,7 +4,7 @@
 
 The project is built as a full-stack **Bun + Turborepo monorepo** with a React frontend, Express/TypeScript backend, PostgreSQL database, OpenAI Realtime API, Deepgram speech-to-text, and Google Gemini for interview evaluation.
 
-> 🚧 **Project Status:** Active development / prototype
+> 🚧 **Project Status:** completed the project development / prototype
 
 ---
 
