@@ -55,7 +55,7 @@ export function Interview() {
             // Start the session using the Session Description Protocol (SDP)
             const offer = await pc.createOffer();
             await pc.setLocalDescription(offer);
-
+// added sdp remote route path 
             const sdpResponse = await fetch(`${BACKEND_URL}/api/v1/session${InterviewId}`, {
                 method: "POST",
                 body: offer.sdp,
